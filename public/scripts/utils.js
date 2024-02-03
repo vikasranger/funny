@@ -16,7 +16,10 @@ export function getPrompts(data)
         Price: chunk.price,
         Type: chunk.type,
         Available: chunk.available,
-        ManufacturedBy: chunk.manufacturer_name
+        ManufacturedBy: chunk.manufacturer_name,
+        Image: chunk.image_url,
+        Composition: chunk.short_composition,
+        SkuId: chunk.sku_id
       };
       res.push(prompt);
     }
