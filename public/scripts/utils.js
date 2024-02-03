@@ -17,7 +17,6 @@ export function getPrompts(data)
         Type: chunk.type,
         Available: chunk.available,
         ManufacturedBy: chunk.manufacturer_name,
-        Image: chunk.image_url,
         Composition: chunk.short_composition,
         SkuId: chunk.sku_id
       };
