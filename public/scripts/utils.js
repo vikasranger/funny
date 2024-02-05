@@ -1,4 +1,3 @@
-
 export function getPrompts(data)
 {
   const res = [];
@@ -9,7 +8,7 @@ export function getPrompts(data)
       const chunk = data[i];
       console.log(chunk);
       const prompt = {
-        _action: "AddCustomer",
+        _action: "AddMedicine",
         _execute: "send",
         Name: chunk.name,
         ID: chunk.id,
