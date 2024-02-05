@@ -22,8 +22,8 @@ app.get("/getData", async(req, res) =>
 {
   try
   {
-    const prefixTerms = req.query.prefixes.split(",");
-    const pages = [1, 2, 3, 4, 5];
+    const prefixTerms = req.query.start.split(",");
+    const pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const perPage = 50;
     const responseData = [];
 
@@ -33,13 +33,20 @@ app.get("/getData", async(req, res) =>
       for(const page of pages)
       {
         const apiUrl = `https://www.1mg.com/pharmacy_api_gateway/v4/drug_skus/by_prefix?prefix_term=${prefixTerm}&page=${page}&per_page=${perPage}`;
-        const response = await fetch(apiUrl);
-        const result = await response.json();
-        let skus = result?.data?.skus;
-        if(skus)
+        try
         {
-          const prompts = getPrompts(skus);
-          storeObj.skus.push(...prompts);
+          const response = await fetch(apiUrl);
+          const result = await response.json();
+          let skus = result?.data?.skus;
+          if(skus)
+          {
+            const prompts = getPrompts(skus);
+            storeObj.skus.push(...prompts);
+          }
+        }
+        catch(e)
+        {
+          //
         }
 
       }
