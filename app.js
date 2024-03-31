@@ -1,6 +1,5 @@
 import express from "express";
 import {getPrompts} from "./public/scripts/utils.js";
-import data from "./data.json" assert { type: "json" };
 
 const app = express();
 
@@ -21,8 +20,82 @@ app.get("/", function(req, res)
 
 app.get("/cards", function(req, res)
 {
-  console.log(data);
-  res.json(data);
+  res.json({
+    "cardList": [
+      {
+        "cardNumber": "1217152175616051",
+        "cardNumberVisible": false,
+        "cardFreeze": false,
+        "cardValidThru": "2/27",
+        "cardCVV": 117,
+        "nameOnCard": "Tony stark",
+        "purpose": "Facebook ads",
+        "cardColor": "black",
+        "availableBalance": "2000",
+        "currencyUnits": "USD",
+        "weeklySpendingLimit": "2000",
+        "weeklySpendingLimitExhausted": false
+      },
+      {
+        "cardNumber": "8246322112295862",
+        "cardNumberVisible": false,
+        "cardFreeze": false,
+        "cardValidThru": "8/29",
+        "cardCVV": 890,
+        "nameOnCard": "Henry Jonathan",
+        "purpose": "Google ads",
+        "cardColor": "blue",
+        "availableBalance": "5000",
+        "currencyUnits": "USD",
+        "weeklySpendingLimit": "5000",
+        "weeklySpendingLimitExhausted": false
+      },
+      {
+        "cardNumber": "2130733425843287",
+        "cardNumberVisible": false,
+        "cardFreeze": false,
+        "cardValidThru": "7/20",
+        "cardCVV": 507,
+        "nameOnCard": "Anthony Edward ",
+        "purpose": "Marketing",
+        "cardColor": "red",
+        "availableBalance": "10000",
+        "currencyUnits": "USD",
+        "weeklySpendingLimit": "10000",
+        "weeklySpendingLimitExhausted": false
+      },
+      {
+        "cardNumber": "7786225647633095",
+        "cardNumberVisible": false,
+        "cardFreeze": false,
+        "cardValidThru": "10/24",
+        "cardCVV": 681,
+        "nameOnCard": "Bruce Banner",
+        "purpose": "Dinner",
+        "cardColor": "orange",
+        "availableBalance": "5000",
+        "currencyUnits": "USD",
+        "weeklySpendingLimit": "5000",
+        "weeklySpendingLimitExhausted": false
+      },
+      {
+        "cardNumber": "5030077555167982",
+        "cardNumberVisible": false,
+        "cardFreeze": false,
+        "cardValidThru": "4/29",
+        "cardCVV": 814,
+        "nameOnCard": "Hawkeye",
+        "purpose": "Laptop",
+        "cardColor": "green",
+        "availableBalance": "90000",
+        "currencyUnits": "USD",
+        "weeklySpendingLimit": "90000",
+        "weeklySpendingLimitExhausted": false
+      }
+    ],
+    "selectedCard": "5030077555167982"
+  }
+  );
 });
 
 app.get("/getData", async(req, res) =>
