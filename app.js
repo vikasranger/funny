@@ -1,5 +1,6 @@
 import express from "express";
 import {getPrompts} from "./public/scripts/utils.js";
+import data from "./data.json" assert { type: "json" };
 
 const app = express();
 
@@ -16,6 +17,12 @@ app.use(express.static("public"));
 app.get("/", function(req, res)
 {
   res.render("./pages/index");
+});
+
+app.get("/cards", function(req, res)
+{
+  console.log(data);
+  res.json(data);
 });
 
 app.get("/getData", async(req, res) =>
